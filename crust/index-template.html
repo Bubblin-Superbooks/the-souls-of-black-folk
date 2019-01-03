@@ -37,9 +37,18 @@
     <input type="hidden" id="bookname" value="{{{ BOOKNAME }}}"/>
     <script src="crust/scripts/bookiza.js"></script>
     <script type="text/javascript">
-    	// Invoker.
-        const options = { duration: 600, peel: true, zoom: true, path: './build/renders', startPage: {{{ OPENAT }}}, length: {{{ BOOKLENGTH }}} }
+
+        // Invoker.
+        const lastPage = () => window.localStorage.lastPage || 1
+        
+
+        const options = { duration: 1000, peel: true, zoom: true, startPage: lastPage(), length: {{{ BOOKLENGTH }}} }
+
+
         const superbook = Bookiza.init({ options })
+
+
+
 
     </script>
 
