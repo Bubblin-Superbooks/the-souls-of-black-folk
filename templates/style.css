@@ -91,10 +91,16 @@ a:active {
 p {
     text-indent: 5vw;  
     margin: 0 0 0 0;
-/*    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto; 
-*/
+}
+
+p.chapter-begin:first-letter {
+  display: inline-block;
+  margin: 2vw 1vw .1vw 0;
+  float: left;
+  line-height: 10vw;
+  font-size: 20vw;
+  color: hsla(0, 0%, 0%, 1);
+  text-indent: 0 !important;  
 }
 
 .no-indent {
@@ -106,38 +112,38 @@ p {
 }
 
 .squeeze-para {
-  letter-spacing: -0.5px;
+  letter-spacing: -0.2px;
 }
 
-hr.section {
+hr.short {
   border: 0;
   text-align: center;
   height: calc(4vw * 1.50);          /* Take a break of two lines only. */
   margin: calc((4vw * 1.50)/2) 0; 
 }
 
-hr.section::after {
+hr.short::after {
   content: "";
 }
 
-hr.section::before {
+hr.short::before {
   content: "❖"; 
   color: black;
 }
 
 
-hr {
+hr.full {
   border: 0;
   text-align: center;
   height: calc(4vw * 1.50);          /* Take a break of two lines only. */
   margin: calc((4vw * 1.50)/2) 0; 
 }
 
-hr::after {
+hr.full::after {
   content: " ";
 }
 
-hr::before {
+hr.full::before {
   content: "== ❖ ==";
   color: black;
 }
@@ -179,8 +185,11 @@ pre, code {
   white-space: -pre-wrap;  
   white-space: -o-pre-wrap;
   word-wrap: break-word;
-  margin: 0 auto calc( 4 * (150vh *(1115/1443))/100 * 7/5); 
-  font-size: 90%;  
+  margin: 0 auto calc( 1 * (150vh *(1115/1443))/100 * 7/5); 
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  text-align: center;
+  font-size: 3.5vw;
 }
 
 h3 {
@@ -196,4 +205,21 @@ h3 {
 
 .uppercase {
   text-transform: uppercase;  
+}
+
+.right {
+  float: right;
+}
+
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+} 
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
